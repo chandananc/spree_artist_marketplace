@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Admin - Marketplace Settings', js: true do
+describe 'Admin - ArtistMarketplace Settings', js: true do
 
   before do
     login_user create(:admin_user)
@@ -18,12 +18,12 @@ describe 'Admin - Marketplace Settings', js: true do
     # Change settings
     check 'allow_signup'
     click_button 'Update'
-    expect(page).to have_content('Marketplace settings successfully updated.')
+    expect(page).to have_content('ArtistMarketplace settings successfully updated.')
 
     # Verify update saved properly by reversing checkboxes or checking field values.
     uncheck 'allow_signup'
     click_button 'Update'
-    expect(page).to have_content('Marketplace settings successfully updated.')
+    expect(page).to have_content('ArtistMarketplace settings successfully updated.')
   end
 
 end

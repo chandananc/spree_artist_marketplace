@@ -4,16 +4,16 @@ feature 'Admin - Product Relation Management', js: true do
 
   before do
     Spree::RelationType.create(:name => "Related Products", :applies_to => "Spree::Product")
-    @user = create(:supplier_user)
-    @supplier1 = @user.supplier
-    @supplier2 = create(:supplier)
+    @user = create(:artist_user)
+    @artist1 = @user.artist
+    @artist2 = create(:artist)
     @product1 = create :product
-    @product1.add_supplier! @supplier1
+    @product1.add_artist! @artist1
     # TODO shoudl we allow them to relate to anyones product or only their own?
     @product2 = create :product
   end
 
-  context 'as Supplier' do
+  context 'as artist' do
     scenario 'should be able to add relations' do
       skip 'for some reason targetted_select2_search is not working properly'
       login_user @user
