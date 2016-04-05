@@ -102,9 +102,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<webmock>, [">= 0"])
   end
 end
-  
-  
-  
-  
-  
-end
+ 
