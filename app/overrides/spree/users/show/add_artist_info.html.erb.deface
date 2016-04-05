@@ -1,0 +1,17 @@
+<!-- insert_bottom '#user-info' -->
+
+<% if SpreeArtistMarketplace::Config[:allow_signup] or @user.artist? %>
+  <br/>
+  <dt class='artist-info'><%= Spree.t(:artist_info) %></dt>
+  <dd class='artist-info'>
+    <% if @user.artist? %>
+      <%= @user.artist.name %>
+      (<%= link_to Spree.t(:edit), spree.edit_admin_artist_path(@user.artist) %>)
+      <%= link_to @user.artist.url, @user.artist.url, target: '_blank' if @user.artist.url.present? %>
+      <br/>
+      Shipments: <b><%= @user.artist.shipments.size %></b> (<%= link_to Spree.t(:manage), spree.admin_shipments_path %>)
+    <% else %>
+      <%= link_to Spree.t(:signup_to_become_a_artist), spree.new_artist_path %>
+    <% end %>
+  </dd>
+<% end %>

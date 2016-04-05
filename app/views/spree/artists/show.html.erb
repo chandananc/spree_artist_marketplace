@@ -1,0 +1,31 @@
+<% @body_id = 'artist-details' %>
+<div class="col-md-12" id="artist-header" data-hook="artist-header">
+	<div class="col-md-3" id="artist_left_part" data-hook="artist_left_part">
+		<div data-hook="artist_left_part_wrap">
+			<div id="artist-profile-picture" data-hook="artist_profile_picture">
+				<%= image_tag @artist.profile_picture.url(:medium) %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-9" data-hook="artist_right_part">
+		<div data-hook="artist_right_part_wrap">
+			<div id="artist-title">
+				<h1><%= @artist.name %></h1>
+			</div>
+		<div id="artist-location">
+			<%= Spree.t(:artist_since) + " " %><%= timeago @artist.created_at %>
+			<% if @artist.address %>
+				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+				<%=	@artist.address.city %>
+			<% end %>
+		</div>
+		<div id="artist-description" data-hook="artist_description">
+			<%= @artist.bio %>
+			<div class="horizontal-line"></div>
+		</div>
+	</div>
+</div>
+<div class="col-md-12" id="artist-product-list">
+		<%= render :partial => 'spree/artists/products' %>
+</div>
+

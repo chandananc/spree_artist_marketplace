@@ -1,0 +1,16 @@
+<div data-hook="artist-index">
+	<% if @artists.any? %>
+	<ul id="artists" class="inline product-listing" data-hook>
+		<% @artists.each do |artist| %>
+			<div id="artist_<%= artist.id %>" class="col-md-3 col-sm-6 product-list-item" data-hook="artist_list_item" itemscope itemtype="http://schema.org/artist">
+			<div class="panel panel-default">
+				<div class="panel-body text-center product-body">
+					<%= image_tag artist.profile_picture.url(:medium) %><br/>
+					<%= link_to truncate(artist.name, :length => 50), :class => 'info', :itemprop => "name", :title => artist.name %>
+			</div>
+		</div>
+	</div>
+<% end %>
+</ul>
+<% end %>
+</div>

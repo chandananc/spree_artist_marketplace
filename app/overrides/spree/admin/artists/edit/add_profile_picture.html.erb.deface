@@ -1,0 +1,5 @@
+<!-- insert_top "[data-hook='artist_right_column_wrapper']" -->
+
+<div id="admin_profile_picture">
+	<%= image_tag @artist.profile_picture.url(:medium) %>
+</div>
