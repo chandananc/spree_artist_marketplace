@@ -11,15 +11,15 @@ module SpreeArtistMarketplace
       g.test_framework :rspec
     end
     
-    initializer "spree_marketplace.preferences", before: :load_config_initializers  do |app|
-      SpreeMarketplace::Config = Spree::MarketplaceConfiguration.new
+    initializer "spree_artist_marketplace.preferences", before: :load_config_initializers  do |app|
+      SpreeArtistMarketplace::Config = Spree::ArtistMarketplaceConfiguration.new
     end
 
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
-      Spree::Ability.register_ability(Spree::MarketplaceAbility)
+      Spree::Ability.register_ability(Spree::ArtistMarketplaceAbility)
     end
 
     def self.ckeditor_available?
