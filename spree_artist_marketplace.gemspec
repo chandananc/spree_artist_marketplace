@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_artist_marketplace'
   s.version     = '3.0.7'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.summary     = 'spree_artist_marketplace'
+  s.description = 'spree_artist_marketplace'
   s.required_ruby_version = '>= 2.0.0'
 
    s.author    = 'Jeff Dutil'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  #s.add_dependency 'spree_core', '~> 3.0.7'
+  s.add_dependency 'spree_core', '~> 3.0.7'
 
   #s.add_development_dependency 'capybara', '~> 2.4'
   #s.add_development_dependency 'coffee-rails'
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<stripe>, [">= 0"])
-      s.add_runtime_dependency(%q<spree_core>, [">= 2.4.3.beta"])
+      s.add_runtime_dependency(%q<spree_core>, [">= 3.0.7"])
       s.add_runtime_dependency(%q<spree_artist_drop_ship>, [">= 0"])
       s.add_development_dependency(%q<capybara>, ["~> 2.2"])
       s.add_development_dependency(%q<coffee-rails>, [">= 0"])
