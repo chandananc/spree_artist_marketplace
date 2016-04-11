@@ -3,13 +3,13 @@ Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
 */
 
-#supplier-title h1 { margin-bottom: 5px; font-size: 48px; }
-#supplier-location { padding-bottom: 20px; color: #525252;	} 
-#supplier-title { 
+#artist-title h1 { margin-bottom: 5px; font-size: 48px; }
+#artist-location { padding-bottom: 20px; color: #525252;	} 
+#artist-title { 
 										h1  {margin-bottom: 5px; font-size: 48px; }
 										span { font-size: 18px; } 
 									}
-#supplier_profile_picture_field { padding-bottom: 30px; }
+#artist_profile_picture_field { padding-bottom: 30px; }
 
-#supplier-location span.glyphicon.glyphicon-map-marker { margin-left: 10px }
-#supplier_left_part { padding-left: 0px; } 
+#artist-location span.glyphicon.glyphicon-map-marker { margin-left: 10px }
+#artist_left_part { padding-left: 0px; } 
