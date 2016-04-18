@@ -12,8 +12,8 @@ class Spree::Admin::ArtistMarketplaceSettingsController < Spree::Admin::BaseCont
       config[name] = value
     end
 
-    flash[:success] = Spree.t('admin.marketplace_settings.update.success')
-    redirect_to spree.edit_admin_marketplace_settings_path
+    flash[:success] = Spree.t('admin.artist_marketplace_settings.update.success')
+    redirect_to spree.edit_admin_artist_marketplace_settings_path
   end
 
 end
