@@ -8,7 +8,7 @@ module Spree
       if user.artist
         if SpreeArtistMarketplace::Engine.spree_digital_available?
           # can [:admin, :manage], Spree::Digital, variant: { artist_ids: user.artist_id }
-          can [:admin, :manage, :create], Spree::Digital do |digital|
+          can [:admin, :create, :manage], Spree::Digital do |digital|
             digital.variant.artist_ids.include?(user.artist_id)
           end
           can :create, Spree::Digital
@@ -19,7 +19,7 @@ module Spree
         can :create, Spree::Image
         if SpreeArtistMarketplace::Engine.spree_group_price_available?
           # can [:admin, :manage], Spree::GroupPrice, variant: { artist_ids: user.artist_id }
-          can [:admin, :manage, :create], Spree::GroupPrice do |price|
+          can [:admin, :manage, :create,], Spree::GroupPrice do |price|
             price.variant.artist_ids.include?(user.artist_id)
           end
         end
@@ -52,7 +52,7 @@ module Spree
         # TODO: Want this to be inline like:
         # can [:admin, :manage], Spree::Variant, artist_ids: user.artist_id
         can [:admin, :create, :index], Spree::Variant
-				can [:admin, :manage, :create], Spree::Variant do |variant|
+				can [:admin, :manage, :create,], Spree::Variant do |variant|
           variant.artist_ids.include?(user.artist_id)
         end
       end
@@ -74,3 +74,4 @@ module Spree
 
   end
 end
+
