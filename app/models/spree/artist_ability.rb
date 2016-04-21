@@ -8,7 +8,7 @@ module Spree
       if user.artist
         if SpreeArtistMarketplace::Engine.spree_digital_available?
           # can [:admin, :manage], Spree::Digital, variant: { artist_ids: user.artist_id }
-          can [:admin, :create, :manage], Spree::Digital do |digital|
+          can [:admin, :create,:manage], Spree::Digital do |digital|
             digital.variant.artist_ids.include?(user.artist_id)
           end
           can :create, Spree::Digital
