@@ -7,7 +7,7 @@ module Spree
 
       if user.artist 
         if SpreeArtistMarketplace::Engine.spree_digital_available?
-          # can [:admin, :manage], Spree::Digital, variant: { artist _ids: user.artist _id }
+          # can [:admin, :manage], Spree::Digital, variant: { artist_ids: user.artist_id }
           can [:admin, :create,:manage], Spree::Digital do |digital|
             digital.variant.artist_ids.include?(user.artist_id)
           end
@@ -18,26 +18,26 @@ module Spree
         end
         can :create, Spree::Image
         if SpreeArtistMarketplace::Engine.spree_group_price_available?
-          # can [:admin, :manage], Spree::GroupPrice, variant: { artist _ids: user.artist _id }
+          # can [:admin, :manage], Spree::GroupPrice, variant: { artist_ids: user.artist_id }
           can [:admin, :manage, :create,], Spree::GroupPrice do |price|
-            price.variant.artist _ids.include?(user.artist _id)
+            price.variant.artist_ids.include?(user.artist_id)
           end
         end
         if SpreeArtistMarketplace::Engine.spree_related_products_available?
-          # can [:admin, :manage], Spree::Relation, relatable: { artist _ids: user.artist _id }
+          # can [:admin, :manage], Spree::Relation, relatable: { artist_ids: user.artist_id }
           can [:admin, :manage], Spree::Relation do |relation|
-            relation.relatable.artist _ids.include?(user.artist _id)
+            relation.relatable.artist_ids.include?(user.artist_id)
           end
         end
         # TODO: Want this to be inline like:
         # can [:admin, :manage, :stock], Spree::Product, artist s: { id: user.artist _id }
         can [:admin, :manage, :stock], Spree::Product do |product|
-          product.artist _ids.include?(user.artist _id)
+          product.artist_ids.include?(user.artist_id)
         end
         can [:admin, :create, :index], Spree::Product
         # can [:admin, :manage], Spree::ProductProperty, product: { artist _ids: user.artist _id }
         can [:admin, :manage, :stock], Spree::ProductProperty do |property|
-          property.product.artist _ids.include?(user.artist _id)
+          property.product.artist_ids.include?(user.artist_id)
         end
         can [:admin, :index, :read], Spree::Property
         can [:admin, :read], Spree::Prototype
@@ -50,11 +50,10 @@ module Spree
         can :create, Spree::StockMovement
         can [:admin, :update], Spree::Artist, id: user.artist_id
         # TODO: Want this to be inline like:
-        # can [:admin, :manage], Spree::Variant, artist _ids: user.artist _id
+        # can [:admin, :manage], Spree::Variant, artist_ids: user.artist_id
         can [:admin, :create, :index], Spree::Variant
 				can [:admin, :manage, :create,], Spree::Variant do |variant|
-          variant.artist _ids.include?(user.experience_id)
-        end
+          variant.artist_ids.include?(user.artist_id)
       end
 
       if SpreeArtistMarketplace::Config[:allow_signup]
@@ -73,5 +72,6 @@ module Spree
     end
 
   end
+end
 end
 
